@@ -1,0 +1,121 @@
+[
+    {
+        "id": "gelas998",
+        "name": "gelas",
+        "price": 20,
+        "rating": 4,
+        "discount": 0
+    } ,
+
+    {
+        "id": "mangkuk9298",
+        "name": "mangkuk 2",
+        "price": 12,
+        "rating": 5,
+        "discount": 0
+    } ,
+
+    {
+        "id": "mangkuk3221",
+        "name": "mangkuk 3",
+        "price": 29,
+        "rating": 4,
+        "discount": 0
+    } ,
+
+    {
+        "id": "mejamakan4kursi900p2",
+        "name": "meja makan 4 kursi",
+        "price": 120,
+        "rating": 5,
+        "discount": 20
+    } ,
+
+    {
+        "id": "mejamakan2kursi900p",
+        "name": "meja makan 2 kursi",
+        "price": 100,
+        "rating": 5,
+        "discount": 10
+    } ,
+
+    {
+        "id": "mejamakan2920p",
+        "name": "gelas",
+        "price": 20,
+        "rating": 4,
+        "discount": 0
+    } ,
+
+    {
+        "id": "mejamakan011",
+        "name": "meja makan",
+        "price": 80,
+        "rating": 3,
+        "discount": 5
+    } ,
+
+    {
+        "id": "pring2ii1",
+        "name": "piring 2 ",
+        "price": 21,
+        "rating": 5,
+        "discount": 5
+    } ,
+
+    {
+        "id": "piring29384",
+        "name": "piring",
+        "price": 40,
+        "rating": 5,
+        "discount": 5
+    } ,
+
+    {
+        "id": "setsendokgarpu8821",
+        "name": "set sendok garpu 2",
+        "price": 60,
+        "rating": 3,
+        "discount": 5
+    } , 
+
+    {
+        "id": "setsendokgarpu89021",
+        "name": "set sendok garpu 3",
+        "price": 60,
+        "rating": 5,
+        "discount": 5
+    } ,
+
+    {
+        "id": "setsendokgarpu110",
+        "name": "set sendok garpu",
+        "price": 70,
+        "rating": 3,
+        "discount": 5
+    } ,
+
+    {
+        "id": "setsendokgarpu110",
+        "name": "set sendok garpu",
+        "price": 70,
+        "rating": 3,
+        "discount": 5
+    } ,
+
+    {
+        "id": "tekoair233",
+        "name": "teko air 2",
+        "price": 40,
+        "rating": 5,
+        "discount": 5
+    } ,
+
+    {
+        "id": "tekoair",
+        "name": "teko air",
+        "price": 40,
+        "rating": 5,
+        "discount": 5
+    } 
+]
