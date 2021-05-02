@@ -25,14 +25,24 @@ const Index = ({navigation}) => {
                         initialValues={initialValues}
                         validationSchema={validationSchema}
                         onSubmit={(values , actions) => {
-                            Firebase.auth().createUserWithEmailAndPassword(values.email , values.password)
+
+                            Firebase.auth().signInWithEmailAndPassword(values.email , values.password)
                             .then( Credential => {
-                                
+                                if(Credential){
+                                    navigation.push("Home")
+                                }
                             })
                             .catch( err => {
-                                var message = err.message
-                                ToastAndroid.show(message , 3000)
+                                let msg = err.message
+                                Alert.alert(
+                                    "Not Valid",
+                                    "Your Email or Password is in-valid",
+                                    [
+                                      { text: "Try Again" }
+                                    ]
+                                  );
                             })
+                            
                         }}
                     >
                     {
