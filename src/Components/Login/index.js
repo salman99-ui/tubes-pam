@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { StyleSheet, Text, View , TextInput , TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View , TextInput , TouchableOpacity , ToastAndroid} from 'react-native'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 
@@ -9,13 +9,11 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object().shape({
-    username : Yup.string().required('Username harus di isi') ,
+    email : Yup.string().required('Email harus di isi').email('invalid email format') ,
     password : Yup.string().required('Password is required')
 })
 
-const handlesubmit = (values , actions) => {
 
-}
 
 const Index = ({navigation}) => {
     return (
@@ -26,22 +24,31 @@ const Index = ({navigation}) => {
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
-                        onSubmit={handlesubmit}
+                        onSubmit={(values , actions) => {}}
                     >
                     {
-                        (props) => {
-                            return(
+                        (props) => (
+                            
                                 <View>
-                                    <TextInput style={styles.email} onChangeText={props.handleChange('email')} value={props.values.email} placeholder="Your Email"/>
-                                    <Text  >{ props.errors.username}</Text>
-                                    <TextInput style={styles.password} onChangeText={props.handleChange('password')} value={props.values.password} placeholder="Your Password" />
-                                    <Text  >{ props.errors.username}</Text>
-                                    <TouchableOpacity style={styles.login} onPress={() => navigation.navigate('Home')}>
+                                    <TextInput style={styles.email} 
+                                    onChangeText={props.handleChange('email')}
+                                    placeholder="Your Email"
+                                    onBlur={props.handleBlur('email')}/>
+                                    <Text style={{color : 'red' , marginBottom : 10}} >{props.touched.email && props.errors.email}</Text>
+
+                                    <TextInput style={styles.password} 
+                                    onChangeText={props.handleChange('password')} 
+                                    placeholder="Your Password" 
+                                    secureTextEntry={true}
+                                    onBlur={props.handleBlur('password')} />
+
+                                    <Text style={{color : 'red' , marginBottom : 10}} >{props.touched.password && props.errors.password}</Text>
+                                    <TouchableOpacity style={styles.login} onPress={props.handleSubmit}>
                                         <Text style={styles.text}>Login</Text>
                                     </TouchableOpacity>
                                 </View>
                             )
-                        }
+                        
                     }
                     </Formik>
                 </View>
