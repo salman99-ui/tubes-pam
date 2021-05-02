@@ -1,8 +1,8 @@
 import React , {useState} from 'react'
-import { StyleSheet, Text, View , TextInput , TouchableOpacity , ToastAndroid} from 'react-native'
+import { StyleSheet, Text, View , TextInput , TouchableOpacity , ToastAndroid ,Alert } from 'react-native'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
-
+import Firebase from '../../Config/Firebase'
 const initialValues = {
     email : '' ,
     password : ''
@@ -24,7 +24,16 @@ const Index = ({navigation}) => {
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
-                        onSubmit={(values , actions) => {}}
+                        onSubmit={(values , actions) => {
+                            Firebase.auth().createUserWithEmailAndPassword(values.email , values.password)
+                            .then( Credential => {
+                                
+                            })
+                            .catch( err => {
+                                var message = err.message
+                                ToastAndroid.show(message , 3000)
+                            })
+                        }}
                     >
                     {
                         (props) => (
