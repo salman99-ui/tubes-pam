@@ -1,39 +1,35 @@
 import React from 'react'
-import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
-
+import { Text, View, StyleSheet, Image, Pressable , ScrollView , TouchableOpacity} from 'react-native';
+import {useSelector} from 'react-redux'
   const Keranjang = ()=>{
+    const data = useSelector(state => state.data)
+    const total_price = useSelector(state => state.total_price)
+
     return (
       <View style={styles.container}>
       <View style={{flex:1}}>
-        
-        <View style={styles.header}>
-          <Image source={require('../../assets/icon/left-arrow.png')} style={styles.previous}/>
-          <Text style={styles.titleHeader}>Keranjang Belanja</Text>
-        </View>
-
-        <View style={styles.areaProduk}>
-          <Pressable style={styles.lingkaranPilih}/>
-            <Image source={require('../../assets/ruangtamu/Aesthetic_chair.jpg')} style={styles.gambarProduk}/>
-            <Text style={styles.namaProduk}> Aesthetic chair</Text>
-            <Text style={styles.hargaProduk}>Rp.500.000</Text>
-            <Pressable style={styles.kotakKurangTambah}>
-              <Text style={styles.kurangTambah}>-</Text>
-            </Pressable>
-
-            <View style={styles.containerNumber}>
-              <Text styke={styles.number}>1</Text>
+      <ScrollView>
+        {
+          data.map( items => (
+            <View style={styles.areaProduk}>
+          
+            <Image source={require('../../assets/ruangmakan/piring.jpg')} style={styles.gambarProduk}/>
+            <View style={styles.produk}>
+            <Text style={styles.namaProduk}>{items.name}</Text>
+            <Text style={styles.hargaProduk}>Price ${items.price}</Text>
             </View>
-            
-            <Pressable style={styles.kotakKurangTambah}>
-              <Text style={styles.kurangTambah}>+</Text>
-            </Pressable>
+           
           </View>
+          ))
+        }
+        </ScrollView>
+        
      </View>
       <View style={styles.footer}>
-       <Text style={styles.total}>Total Belanja: Rp.0</Text>
-          <View style={styles.tombolPesan}>
+       <Text style={styles.total}>Total Belanja: ${total_price}</Text>
+          <TouchableOpacity style={styles.tombolPesan}>
               <Text style={styles.teksPesan}>BUAT PESANAN</Text>
-          </View>
+          </TouchableOpacity>
      </View>
     </View>
   );
@@ -42,37 +38,17 @@ import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
 const styles = StyleSheet.create({
   container : {
     flex:1,
-    backgroundColor: '#E5E5E5'
-  },
-  header : {
-    borderWidth: 1, 
-    height:71,
-    flexDirection: 'row', 
-    borderColor:'#E5E5E5',
     backgroundColor: 'white'
   },
-  previous : {
-    width:15, 
-    height:15, 
-    marginTop:40, 
-    marginLeft:15
-  },
-  titleHeader : {
-    marginLeft: 15, 
-    marginTop:38
-  },
+ 
+  
   areaProduk : {
     height: 116,
     backgroundColor:'white', 
-    flexDirection:'row'
-  },
-  lingkaranPilih : {
-    height:14, 
-    width:14, 
-    borderWidth:0.5, 
-    borderRadius:7, 
-    marginTop:12, 
-    marginLeft:15
+    flexDirection:'row' ,
+    padding : 8 ,
+    marginBottom : 8 ,
+    justifyContent : 'space-between'
   },
   gambarProduk: {
     width: 90, 
@@ -80,36 +56,23 @@ const styles = StyleSheet.create({
     marginTop: 10, 
     marginLeft: 20
   },
+  produk : {
+    flex : 1 ,
+    flexDirection : 'column' ,
+    padding : 10 ,
+    justifyContent : 'center' ,
+    
+  }
+  ,
   namaProduk: {
-    marginTop: 18, 
+   
     fontSize:17
   },
   hargaProduk : {
-    position:'absolute', 
-    top:40, 
-    left: 155, 
-    color:'red'
+    marginTop : 8 ,
+    color:'grey'
   },
-  kotakKurangTambah: {
-    height:14, 
-    width:21, 
-    backgroundColor:'#C4C4C4', 
-    alignItems:'center', 
-    justifyContent:'center', 
-    top: 90
-  },
-  kurangTambah: {
-    fontSize:19
-  },
-  containerNumber: {
-    top:88, 
-    marginLeft:5, 
-    marginRight:5
-  },
-  number : {
-    fontSize:17, 
-    position:'absolute'
-  },
+  
   footer :{
     height:109, 
     backgroundColor:'white', 

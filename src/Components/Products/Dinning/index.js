@@ -1,10 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View , Image , TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View , Image , TouchableOpacity , ToastAndroid} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Cart from '../../Keranjang'
+import Add from '../../../Redux/Cart/Action'
+import {useDispatch } from 'react-redux'
 const Tab = createBottomTabNavigator()
 const Data = () => {
+  const dispatch = useDispatch()
     return (
     <View style={styles.container}>
     <View style={{flex : 1}}>
@@ -17,7 +20,10 @@ const Data = () => {
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
   
-              <TouchableOpacity style={styles.action}>
+              <TouchableOpacity style={styles.action} onPress={() => {
+                dispatch( Add({name : 'piring' , price : 9}) )
+                ToastAndroid.show('Success Add Item to Cart' , 2000)
+                }}>
                 <Text style={styles.buy}>Beli</Text>
               </TouchableOpacity>
             
@@ -34,7 +40,7 @@ const Data = () => {
             <Text style={styles.title}>Teko</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
-              <TouchableOpacity style={styles.action}>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
                 <Text style={styles.buy}>Beli</Text>
               </TouchableOpacity>
           </View>
@@ -53,7 +59,7 @@ const Data = () => {
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
   
-              <TouchableOpacity style={styles.action}>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
                 <Text style={styles.buy}>Beli</Text>
               </TouchableOpacity>
           </View>
@@ -67,7 +73,8 @@ const Data = () => {
             <Text>Meja Makan 2</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
-              <TouchableOpacity style={styles.action}>
+
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
                 <Text style={styles.buy}>Beli</Text>
               </TouchableOpacity>
           </View>

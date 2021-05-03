@@ -4,13 +4,14 @@ import Cover from '../Components/Cover'
 import Login from '../Components/Login'
 import Home from '../Pages/Main'
 import Register from '../Components/Register'
-
+import Screen from '../Components/Screen'
 const Stack = createStackNavigator()
 
 const Index = () => {
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator >
+            <Stack.Screen name="Screen" component={Screen} options={{headerShown : false}} />
             <Stack.Screen name="cover" component={Cover} options={{headerShown : false}} />
             <Stack.Screen name="Login" component={Login} options={{headerShown : false}} />
             <Stack.Screen name="Register" component={Register} options={{headerShown : false}} />

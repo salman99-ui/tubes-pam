@@ -6,6 +6,16 @@ const Index = ({navigation}) => {
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.data}>
+                <TouchableOpacity style={styles.cover} onPress={() => navigation.navigate('Dinning')}>
+                    <ImageBackground style={styles.background} source={require('../../assets/img/dinningroom.jpg')} >
+                        <View style={styles.info}>
+                            <Text style={styles.text}>Ruang Makan</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableOpacity>
+            </View>
+            
+            <View style={styles.data}>
                 <TouchableOpacity style={styles.cover} onPress={() => navigation.navigate('Bedroom')}>
                     <ImageBackground style={styles.background} source={require('../../assets/img/bedroom.jpg')} >
                         <View style={styles.info}>
@@ -20,16 +30,6 @@ const Index = ({navigation}) => {
                     <ImageBackground style={styles.background} source={require('../../assets/img/livingroom.jpg')} >
                         <View style={styles.info}>
                             <Text style={styles.text}>Ruang Tamu</Text>
-                        </View>
-                    </ImageBackground>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.data}>
-                <TouchableOpacity style={styles.cover} onPress={() => navigation.navigate('Dinning')}>
-                    <ImageBackground style={styles.background} source={require('../../assets/img/dinningroom.jpg')} >
-                        <View style={styles.info}>
-                            <Text style={styles.text}>Ruang Makan</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
