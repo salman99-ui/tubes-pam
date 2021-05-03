@@ -5,10 +5,12 @@ import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
     return (
       <View style={styles.container}>
       <View style={{flex:1}}>
+        
         <View style={styles.header}>
           <Image source={require('../../assets/icon/left-arrow.png')} style={styles.previous}/>
           <Text style={styles.titleHeader}>Keranjang Belanja</Text>
         </View>
+
         <View style={styles.areaProduk}>
           <Pressable style={styles.lingkaranPilih}/>
             <Image source={require('../../assets/ruangtamu/Aesthetic_chair.jpg')} style={styles.gambarProduk}/>

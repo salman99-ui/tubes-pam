@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View , Image , TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import Cart from '../../Keranjang'
 const Tab = createBottomTabNavigator()
 const Data = () => {
     return (
@@ -79,19 +81,29 @@ const Data = () => {
   </View>
     )
 }
-
-const Home = () => {
-    return(
-        <View>
-            <Text>Home</Text>
-        </View>
-    )
-}
 const Index = () => {
   return (
-   <Tab.Navigator tabBarOptions={{activeTintColor : 'black'}}>
+   <Tab.Navigator
+   screenOptions = {({route}) => ({
+     tabBarIcon : ({focused , color , size }) => {
+      let iconName;
+
+      if (route.name === 'Products') {
+        iconName = focused
+          ? 'home'
+          : 'home';
+      } else if (route.name === 'Cart') {
+        iconName = focused ? 'shopping-cart' : 'shopping-cart';
+      }
+
+      // You can return any component that you like here!
+      return <Icon name={iconName} size={size} color={color} />;
+     }
+   })}
+   tabBarOptions={{activeTintColor : 'black' , inactiveTintColor : 'grey'}}>
+
        <Tab.Screen component={Data} name="Products"/>
-       <Tab.Screen component={Home} name="Home" />
+       <Tab.Screen component={Cart} name="Cart" />
    </Tab.Navigator>
   )
 }
