@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import {NavigationContainer , DefaultTheme} from '@react-navigation/native'
 import Router from './src/Router'
 import {Provider} from 'react-redux'
-import Store from './src/Redux/Cart/Store'
+import Store from './src/Redux/'
 const App = () => {
   const MyTheme = {
     ...DefaultTheme,
