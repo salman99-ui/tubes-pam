@@ -5,6 +5,7 @@ import Login from '../Components/Login'
 import Home from '../Pages/Main'
 import Register from '../Components/Register'
 import Screen from '../Components/Screen'
+import Forgot from '../Components/Forgot'
 const Stack = createStackNavigator()
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
             <Stack.Screen name="Screen" component={Screen} options={{headerShown : false}} />
             <Stack.Screen name="cover" component={Cover} options={{headerShown : false}} />
             <Stack.Screen name="Login" component={Login} options={{headerShown : false}} />
+            <Stack.Screen name="Forgot" component={Forgot} options={{headerShown : false}} />
             <Stack.Screen name="Register" component={Register} options={{headerShown : false}} />
             <Stack.Screen name="Home" component={Home} options={{headerShown : false}} />
         </Stack.Navigator>

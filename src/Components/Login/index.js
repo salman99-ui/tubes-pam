@@ -53,7 +53,7 @@ const Index = ({navigation}) => {
                                     onChangeText={props.handleChange('email')}
                                     placeholder="Your Email"
                                     onBlur={props.handleBlur('email')}/>
-                                    <Text style={{color : 'red' , marginBottom : 10}} >{props.touched.email && props.errors.email}</Text>
+                                    <Text style={{color : 'red' , marginBottom : props.errors.email ? 10 : 0}} >{props.touched.email && props.errors.email}</Text>
 
                                     <TextInput style={styles.password} 
                                     onChangeText={props.handleChange('password')} 
@@ -61,7 +61,8 @@ const Index = ({navigation}) => {
                                     secureTextEntry={true}
                                     onBlur={props.handleBlur('password')} />
 
-                                    <Text style={{color : 'red' , marginBottom : 10}} >{props.touched.password && props.errors.password}</Text>
+                                    <Text style={{color : 'red' , marginBottom : 10 , display : props.touched.password ? 'flex' : 'none'}} >{props.touched.password && props.errors.password}</Text>
+                                    <Text onPress={() => navigation.navigate('Forgot')}  style={styles.forgot}>Forgot Password?</Text>
                                     <TouchableOpacity style={styles.login} onPress={props.handleSubmit}>
                                         <Text style={styles.text}>Login</Text>
                                     </TouchableOpacity>
@@ -116,12 +117,18 @@ const styles = StyleSheet.create({
         display : 'flex' ,
         flexDirection : 'row' ,
         justifyContent : 'center' ,
-        borderRadius : 10
+        borderRadius : 10 ,
+        marginVertical : 8 
 
     } ,
 
     text : {
         color : 'white' ,
         
+    } ,
+
+    forgot : {
+        textAlign : 'right' ,
+        fontWeight : '500'
     }
 })

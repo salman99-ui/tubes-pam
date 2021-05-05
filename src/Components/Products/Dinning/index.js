@@ -1,14 +1,17 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { StyleSheet, Text, View , Image , TouchableOpacity , ToastAndroid} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Cart from '../../Keranjang'
 import Wallet from '../../Wallet'
-import Add from '../../../Redux/Cart/Action'
+import Order from '../../Order'
+import {Add} from '../../../Redux/Cart/Action'
 import {useDispatch } from 'react-redux'
 const Tab = createBottomTabNavigator()
+
 const Data = () => {
   const dispatch = useDispatch()
+  
     return (
     <View style={styles.container}>
     <View style={{flex : 1}}>
@@ -24,6 +27,7 @@ const Data = () => {
               <TouchableOpacity style={styles.action} onPress={() => {
                 dispatch( Add({name : 'piring' , price : 90}) )
                 ToastAndroid.show('Success Add Item to Cart' , 2000)
+                
                 }}>
                 <Text style={styles.buy}>Beli</Text>
               </TouchableOpacity>
@@ -90,6 +94,7 @@ const Data = () => {
     )
 }
 const Index = () => {
+  const [items , setItems ] = useState(0)
   return (
    <Tab.Navigator
    screenOptions = {({route}) => ({
@@ -104,6 +109,8 @@ const Index = () => {
         iconName = focused ? 'shopping-cart' : 'shopping-cart';
       } else if (route.name === 'Wallet') {
         iconName = focused ? 'google-wallet' : 'google-wallet';
+      } else if (route.name === 'Order') {
+        iconName = focused ? 'truck' : 'truck';
       }
 
       // You can return any component that you like here!
@@ -114,7 +121,8 @@ const Index = () => {
 
        <Tab.Screen component={Data} name="Products"/>
        <Tab.Screen component={Cart} name="Cart" />
-       <Tab.Screen component={Wallet} name="Wallet" />
+       <Tab.Screen component={Wallet} name="Wallet" options={{tabBarBadge : items == 0 ? null : items}}/>
+       <Tab.Screen component={Order} name="Order" />
    </Tab.Navigator>
   )
 }

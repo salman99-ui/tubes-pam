@@ -2,6 +2,8 @@ import React from 'react'
 import { Text, View, StyleSheet, Image, Pressable , ScrollView , TouchableOpacity ,Alert} from 'react-native';
 import {useSelector , useDispatch} from 'react-redux'
 import Buy from '../../Redux/Wallet/Action'
+import Order from '../../Redux/Order/action'
+import {deletecart} from '../../Redux/Cart/Action'
   const Keranjang = ({navigation})=>{
     const data = useSelector(state => state.cart.data)
     const total_price = useSelector(state => state.cart.total_price)
@@ -33,8 +35,12 @@ import Buy from '../../Redux/Wallet/Action'
             
             
             if(saldo > total_price){
+              
               dispatch(Buy({name : 'piring' , price : total_price}))
-            Alert.alert(
+              
+              dispatch(deletecart())
+              dispatch(Order({name : 'piring' , price : total_price}))
+              Alert.alert(
               "Success",
               "Berhasil Melakukan Pembayaran",
               [

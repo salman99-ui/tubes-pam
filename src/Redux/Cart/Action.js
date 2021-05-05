@@ -1,4 +1,4 @@
-const add = (data) => {
+const Add = (data) => {
     return {
         type : "addToCart" ,
         payload : {
@@ -8,4 +8,10 @@ const add = (data) => {
     }
 }
 
-export default add
+const deletecart = () => {
+    return {
+        type : "deleteCart" 
+    }
+}
+
+export { Add , deletecart }
