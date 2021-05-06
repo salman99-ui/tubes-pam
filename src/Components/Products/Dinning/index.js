@@ -6,7 +6,8 @@ import Cart from '../../Keranjang'
 import Wallet from '../../Wallet'
 import Order from '../../Order'
 import {Add} from '../../../Redux/Cart/Action'
-import {useDispatch } from 'react-redux'
+import {useDispatch , useSelector} from 'react-redux'
+
 const Tab = createBottomTabNavigator()
 
 const Data = () => {
@@ -94,7 +95,7 @@ const Data = () => {
     )
 }
 const Index = () => {
-  const [items , setItems ] = useState(0)
+  const items = useSelector(state => state.order.items)
   return (
    <Tab.Navigator
    screenOptions = {({route}) => ({
@@ -121,8 +122,8 @@ const Index = () => {
 
        <Tab.Screen component={Data} name="Products"/>
        <Tab.Screen component={Cart} name="Cart" />
-       <Tab.Screen component={Wallet} name="Wallet" options={{tabBarBadge : items == 0 ? null : items}}/>
-       <Tab.Screen component={Order} name="Order" />
+       <Tab.Screen component={Wallet} name="Wallet" />
+       <Tab.Screen component={Order} name="Order" options={{tabBarBadge : items == 0 ? null : items}} />
    </Tab.Navigator>
   )
 }
