@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
 
     info : {
         position : 'absolute' ,
-        backgroundColor : '#553BFB' ,
+        backgroundColor : '#C4C4C4' ,
         padding : 10 ,
         borderTopLeftRadius : 8 ,
         bottom : 0 ,
