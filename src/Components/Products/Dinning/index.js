@@ -7,7 +7,7 @@ import Wallet from '../../Wallet'
 import Order from '../../Order'
 import {Add} from '../../../Redux/Cart/Action'
 import {useDispatch , useSelector} from 'react-redux'
-
+import Profile from '../../profileroot'
 const Tab = createBottomTabNavigator()
 
 const Data = () => {
@@ -112,6 +112,8 @@ const Index = () => {
         iconName = focused ? 'google-wallet' : 'google-wallet';
       } else if (route.name === 'Order') {
         iconName = focused ? 'truck' : 'truck';
+      }else if (route.name === 'Profile') {
+        iconName = focused ? 'user' : 'user';
       }
 
       // You can return any component that you like here!
@@ -124,6 +126,7 @@ const Index = () => {
        <Tab.Screen component={Cart} name="Cart" />
        <Tab.Screen component={Wallet} name="Wallet" />
        <Tab.Screen component={Order} name="Order" options={{tabBarBadge : items == 0 ? null : items}} />
+       <Tab.Screen component={Profile} name="Profile" />
    </Tab.Navigator>
   )
 }
