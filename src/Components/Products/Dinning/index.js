@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { StyleSheet, Text, View , Image , TouchableOpacity , ToastAndroid} from 'react-native'
+import { StyleSheet, Text, View , Image , TouchableOpacity , ToastAndroid , ScrollView} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Cart from '../../Keranjang'
@@ -16,12 +16,13 @@ const Data = () => {
     return (
     <View style={styles.container}>
     <View style={{flex : 1}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.row}>
       <View style={styles.card}>
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/piring.jpg')}/>
-            <Text style={styles.title}>Piring</Text>
+            <Text style={styles.title}>Plate</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
   
@@ -30,7 +31,7 @@ const Data = () => {
                 ToastAndroid.show('Success Add Item to Cart' , 2000)
                 
                 }}>
-                <Text style={styles.buy}>Beli</Text>
+                <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
             
           </View>
@@ -43,11 +44,11 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/tekoair2.jpg')}/>
-            <Text style={styles.title}>Teko</Text>
+            <Text style={styles.title}>Teapot</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
               <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
-                <Text style={styles.buy}>Beli</Text>
+                <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
         
@@ -61,12 +62,12 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mangkuk2.jpg')}/>
-            <Text>Mangkuk 2</Text>
+            <Text>Bowl</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
   
               <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
-                <Text style={styles.buy}>Beli</Text>
+                <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
         
@@ -76,12 +77,12 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mejamakan2.jpg')}/>
-            <Text>Meja Makan 2</Text>
+            <Text>Dinning Table</Text>
             <Text style={styles.price}>$90.00</Text>
             <Text style={styles.rating}>Rating : 5</Text>
 
               <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
-                <Text style={styles.buy}>Beli</Text>
+                <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
         
@@ -89,6 +90,41 @@ const Data = () => {
 
     
   </View>
+
+  <View style={styles.row}>
+      <View style={styles.card}>
+
+          <View style={styles.content}>
+            <Image style={styles.img} source={require('../../../assets/ruangmakan/mejamakan.jpg')}/>
+            <Text>Table white</Text>
+            <Text style={styles.price}>$90.00</Text>
+            <Text style={styles.rating}>Rating : 5</Text>
+  
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+                <Text style={styles.buy}>Buy</Text>
+              </TouchableOpacity>
+          </View>
+        
+      </View>
+
+      <View style={styles.card}>
+
+          <View style={styles.content}>
+            <Image style={styles.img} source={require('../../../assets/ruangmakan/mangkuk3.jpg')}/>
+            <Text>Bowl 2</Text>
+            <Text style={styles.price}>$90.00</Text>
+            <Text style={styles.rating}>Rating : 5</Text>
+
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+                <Text style={styles.buy}>Buy</Text>
+              </TouchableOpacity>
+          </View>
+        
+      </View>
+
+    
+  </View>
+  </ScrollView>
   </View>
 
   </View>

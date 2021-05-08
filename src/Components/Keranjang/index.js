@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
   tombolPesan : {
     height:40, 
     width:227, 
-    backgroundColor: 'orange', 
+    backgroundColor: '#2E42AA', 
     alignItems:'center', 
     justifyContent:'center'
   },
   teksPesan : {
-    color: 'rgba(0, 0, 0, 0.51)'
+    color: 'white'
   }
 
 });
