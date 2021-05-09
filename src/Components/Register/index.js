@@ -1,9 +1,10 @@
-import React from 'react'
+import React , {useState}from 'react'
 import { StyleSheet, Text, View , TextInput , CheckBox , TouchableOpacity , ToastAndroid , Alert} from 'react-native'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 import Firebase from 'firebase'
 const Index = ({navigation}) => {
+    const [select , setselect] = useState(false)
     const validationschema = Yup.object().shape({
         email : Yup.string().required('Email harus di isi').email('invalid email format') ,
         password : Yup.string().required('Password is required')
@@ -51,7 +52,7 @@ const Index = ({navigation}) => {
                                 </View>
 
                                 <View style={[styles.gap , styles.terms]}>
-                                <CheckBox  /> 
+                                <CheckBox onValueChange={setselect} value={select} /> 
                                     <Text>I accept <Text style={{color : 'blue'}}>Terms of Use</Text></Text>
                                 </View>
 

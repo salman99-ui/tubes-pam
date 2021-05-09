@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     submit : {
         padding : 15 ,
         width : '84%' ,
-        backgroundColor : 'green' ,
+        backgroundColor : '#2E42AA' ,
 
     } ,
 
