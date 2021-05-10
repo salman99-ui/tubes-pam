@@ -1,10 +1,38 @@
-import React from 'react'
-import { StyleSheet, Text, View , ImageBackground , TouchableOpacity , ScrollView} from 'react-native'
+import * as React from "react"
+import { 
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  ScrollView,
+  Dimensions,
+  TouchableOpacity,
+  ImageBackground
+ } from "react-native"
+import Slider from "react-native-hook-image-slider"
 
-const Index = ({navigation}) => {
-    return (
-        <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+const Banner = ()=>{
+  return(
+    <View style={{height:20}}>
+      <Slider
+        
+        images={[
+          'https://i.postimg.cc/7572nHf3/taonga.png',
+          'https://i.postimg.cc/G24Jg2bk/banner2.jpg',
+          'https://i.postimg.cc/VsH2NrSc/Best-Types-of-Wood-for-Furniture.jpg'
+        ]} imageHeight={215} emptyDotColor={'#888'}
+      />
+      </View>
+  )
+}
+const App = ({navigation}) => {
+  return (
+    <View style={{flex:1}}>
+        <Banner/>
+    
+      <View>
+      <ScrollView showsVerticalScrollIndicator={false} style = {{marginTop:200}}>
             <View style={styles.data}>
                 <TouchableOpacity style={styles.cover} onPress={() => navigation.navigate('Dinning')}>
                     <ImageBackground style={styles.background} source={require('../../assets/img/dinningroom.jpg')} >
@@ -26,7 +54,7 @@ const Index = ({navigation}) => {
             </View>
 
             <View style={styles.data}>
-                <TouchableOpacity style={styles.cover} onPress={() => navigation.navigate('Living')}>
+                <TouchableOpacity style={styles.cover} >
                     <ImageBackground style={styles.background} source={require('../../assets/img/livingroom.jpg')} >
                         <View style={styles.info}>
                             <Text style={styles.text}>Ruang Tamu</Text>
@@ -35,7 +63,7 @@ const Index = ({navigation}) => {
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.data}>
+            <View style={styles.data2}>
                 <TouchableOpacity style={styles.cover}>
                     <ImageBackground style={styles.background} source={require('../../assets/img/workingroom.jpg')} >
                         <View style={styles.info}>
@@ -45,15 +73,14 @@ const Index = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             </ScrollView>
-        </View>
-    )
+            </View>
+    </View>
+  )
 }
 
-export default Index
-
 const styles = StyleSheet.create({
-    container : {
-        paddingTop : 30,
+    container2 : {
+        paddingTop : 20,
         paddingHorizontal : 10 ,
         flex : 1 ,
         flexDirection : 'column' 
@@ -61,13 +88,19 @@ const styles = StyleSheet.create({
 
     data : {
         width : '100%' ,
-        height : 160 ,
-        marginBottom : 12
+        height : 160,
+        marginBottom : 5,
     } ,
+    data2 : {
+      width : '100%' ,
+        height : 130,
+        marginBottom:20
+    },
 
     cover : {
         flex : 1
     } , 
+
 
     background : {
         flex : 1 ,
@@ -91,5 +124,6 @@ const styles = StyleSheet.create({
         fontWeight : '600' ,
         fontFamily : 'sans-serif'
     }
-
 })
+
+export default App;
