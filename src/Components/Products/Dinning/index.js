@@ -10,11 +10,16 @@ import {useDispatch , useSelector} from 'react-redux'
 import Profile from '../../profileroot'
 const Tab = createBottomTabNavigator()
 
-const Data = () => {
+const Data = ({navigation}) => {
   const dispatch = useDispatch()
   
     return (
+    
     <View style={styles.container}>
+      <TouchableOpacity style={{marginTop:20, position:'relative'}}  onPress={() => navigation.navigate('Home')}>
+        <Image source={require('../../../assets/icon/left-arrow.png')} style={{height:20, width:20}}/>
+        <Text style={styles.header}>TAONGA</Text>
+     </TouchableOpacity>
     <View style={{flex : 1}}>
       <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.row}>
@@ -23,11 +28,17 @@ const Data = () => {
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/piring.jpg')}/>
             <Text style={styles.title}>Plate</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
+            <Text style={{fontSize:7}}>Material : Melamin</Text>
+            <Text style={{fontSize:7}}>Variasi : Random</Text>
+            <Text style={styles.price}>Rp. 25.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
+          
   
               <TouchableOpacity style={styles.action} onPress={() => {
-                dispatch( Add({name : 'piring' , price : 90}) )
+                dispatch( Add({name : 'piring' , price : 25}) )
                 ToastAndroid.show('Success Add Item to Cart' , 2000)
                 
                 }}>
@@ -45,9 +56,14 @@ const Data = () => {
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/tekoair2.jpg')}/>
             <Text style={styles.title}>Teapot</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
-              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+            <Text style={{fontSize:7}}>Material : Porcelain</Text>
+            <Text style={{fontSize:7}}>Variasi : estetik</Text>
+            <Text style={styles.price}>Rp. 200.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 200}) )}>
                 <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
@@ -62,11 +78,15 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mangkuk2.jpg')}/>
-            <Text>Bowl</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
-  
-              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+            <Text style={styles.title}>Bowl</Text>
+            <Text style={{fontSize:7}}>Material : Glass</Text>
+            <Text style={{fontSize:7}}>Variasi : choco bowl</Text>
+            <Text style={styles.price}>Rp. 50.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 500}) )}>
                 <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
@@ -77,11 +97,15 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mejamakan2.jpg')}/>
-            <Text>Dinning Table</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
-
-              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+            <Text style={styles.title}>Meja Makan</Text>
+            <Text style={{fontSize:7}}>Material : Jati</Text>
+            <Text style={{fontSize:7}}>Variasi : 5 kursi</Text>
+            <Text style={styles.price}>Rp. 590.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 590}) )}>
                 <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
@@ -96,11 +120,16 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mejamakan.jpg')}/>
-            <Text>Table white</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
+            <Text style={styles.title}>Meja makan</Text>
+            <Text style={{fontSize:7}}>Material : Jati</Text>
+            <Text style={{fontSize:7}}>Variasi : Table White</Text>
+            <Text style={styles.price}>Rp. 900.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
   
-              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 900}) )}>
                 <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
@@ -111,11 +140,16 @@ const Data = () => {
 
           <View style={styles.content}>
             <Image style={styles.img} source={require('../../../assets/ruangmakan/mangkuk3.jpg')}/>
-            <Text>Bowl 2</Text>
-            <Text style={styles.price}>$90.00</Text>
-            <Text style={styles.rating}>Rating : 5</Text>
+            <Text style={styles.title}>Bowl</Text>
+            <Text style={{fontSize:7}}>Material : Glass</Text>
+            <Text style={{fontSize:7}}>Variasi : white bowl</Text>
+            <Text style={styles.price}>Rp. 40.000</Text>
+            <View style={{position:'relative'}}>
+              <Text style={styles.rating}>Rating :5 </Text>
+              <Image source={require('../../../assets/icon/star.png')} style={styles.bintang}/>
+            </View>
 
-              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 9}) )}>
+              <TouchableOpacity style={styles.action} onPress={() => dispatch( Add({name : 'piring' , price : 40}) )}>
                 <Text style={styles.buy}>Buy</Text>
               </TouchableOpacity>
           </View>
@@ -140,8 +174,8 @@ const Index = () => {
 
       if (route.name === 'Products') {
         iconName = focused
-          ? 'home'
-          : 'home';
+          ? 'plus-circle'
+          : 'plus-circle';
       } else if (route.name === 'Cart') {
         iconName = focused ? 'shopping-cart' : 'shopping-cart';
       } else if (route.name === 'Wallet') {
@@ -159,7 +193,7 @@ const Index = () => {
    tabBarOptions={{activeTintColor : 'black' , inactiveTintColor : 'grey'}}>
 
        <Tab.Screen component={Data} name="Products"/>
-       <Tab.Screen component={Cart} name="Cart" />
+       <Tab.Screen component={Cart} name="Cart" options={{tabBarBadge : items == 0 ? null : items}}/>
        <Tab.Screen component={Wallet} name="Wallet" />
        <Tab.Screen component={Order} name="Order" options={{tabBarBadge : items == 0 ? null : items}} />
        <Tab.Screen component={Profile} name="Profile" />
@@ -179,7 +213,7 @@ const styles = StyleSheet.create({
   row : {
     flexDirection : 'row' ,
     justifyContent : 'space-between' ,
-    
+
   } ,
 
   card : {
@@ -188,6 +222,7 @@ const styles = StyleSheet.create({
     backgroundColor : 'white' ,
     position : 'relative' ,
     shadowColor: "#000",
+    paddingLeft:5,
 shadowOffset: {
 	width: 0,
 	height: 3,
@@ -217,7 +252,8 @@ shadowRadius: 4.65,
 
   price : {
     fontSize : 18 ,
-    fontWeight : 'bold' 
+    fontWeight : 'bold',
+    color:'#2E42AA'
   } ,
 
   content : {
@@ -239,5 +275,18 @@ shadowRadius: 4.65,
   buy : {
     textAlign : 'center' ,
     color : 'white'
+  },
+  bintang : {
+    position:'absolute',
+    left:40,
+    width:8,
+    height:8,
+    top:3
+  },
+  rating : {
+    fontSize:10
+  },
+  header:{
+    alignSelf:'center', fontWeight:"bold", position:'absolute'
   }
 })

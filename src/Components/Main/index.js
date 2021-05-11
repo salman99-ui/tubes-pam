@@ -18,7 +18,6 @@ const Banner = ()=>{
       <Slider
         
         images={[
-          
           'https://i.postimg.cc/G24Jg2bk/banner2.jpg',
           'https://i.postimg.cc/VsH2NrSc/Best-Types-of-Wood-for-Furniture.jpg'
         ]} imageHeight={215} emptyDotColor={'#888'}
