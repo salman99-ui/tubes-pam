@@ -20,7 +20,7 @@ import {deletecart} from '../../Redux/Cart/Action'
             <Image source={require('../../assets/ruangmakan/piring.jpg')} style={styles.gambarProduk}/>
             <View style={styles.produk}>
             <Text style={styles.namaProduk}>{items.name}</Text>
-            <Text style={styles.hargaProduk}>Price ${items.price}</Text>
+            <Text style={styles.hargaProduk}>Price Rp.{items.price}.000</Text>
             </View>
            
           </View>
@@ -30,7 +30,7 @@ import {deletecart} from '../../Redux/Cart/Action'
         
      </View>
       <View style={styles.footer}>
-       <Text style={styles.total}>Total Belanja: ${total_price}</Text>
+       <Text style={styles.total}>Total Belanja: Rp.{total_price}.000</Text>
           <TouchableOpacity style={styles.tombolPesan} onPress={() => {
             
             

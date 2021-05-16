@@ -14,7 +14,7 @@ const Index = () => {
                             <Image source={require('../../assets/ruangmakan/piring.jpg')} style={styles.img}/>
                         </View>
                         <View style={styles.content}>
-                            <Text>Price ${items.price}</Text>
+                            <Text>Total Belanja Rp.{items.price}.000</Text>
                             <Text>Status  <Text style={{color : 'blue' , fontWeight : '600' }}>Pending</Text></Text>
                             <View style={{height : 2 , backgroundColor : 'black' , marginTop : 5}}></View>
                         </View>
