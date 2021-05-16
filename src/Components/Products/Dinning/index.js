@@ -193,7 +193,7 @@ const Index = () => {
    tabBarOptions={{activeTintColor : 'black' , inactiveTintColor : 'grey'}}>
 
        <Tab.Screen component={Data} name="Products"/>
-       <Tab.Screen component={Cart} name="Cart" options={{tabBarBadge : items == 0 ? null : items}}/>
+       <Tab.Screen component={Cart} name="Cart"/>
        <Tab.Screen component={Wallet} name="Wallet" />
        <Tab.Screen component={Order} name="Order" options={{tabBarBadge : items == 0 ? null : items}} />
        <Tab.Screen component={Profile} name="Profile" />

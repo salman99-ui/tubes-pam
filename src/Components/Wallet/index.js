@@ -10,7 +10,7 @@ const Wallet=() => {
     <View style={{flex:1,  paddingHorizontal : 8}}> 
       <View style={{backgroundColor:'white', height:267, alignItems:'center', borderBottomWidth:2, borderBottomColor:'#B1B1B1'}}>
           <Text style={{fontSize:36, fontWeight:'500', marginTop:30 , color : 'black'}}>Saldo</Text>
-          <Text style={{fontSize:36, fontWeight:'500' , color : '#2E42AA'}}>${saldo}</Text>
+          <Text style={{fontSize:36, fontWeight:'500' , color : '#2E42AA'}}>Rp.{saldo}.000</Text>
           
       </View>
       <View style="">
@@ -31,7 +31,7 @@ const Wallet=() => {
                 <DataTable.Row key={index}>
                   <DataTable.Cell>{items.calender}</DataTable.Cell>
                   <DataTable.Cell>{items.name}</DataTable.Cell>
-                  <DataTable.Cell>${items.price}</DataTable.Cell>
+                  <DataTable.Cell>Rp.{items.price}.000</DataTable.Cell>
                   
                 </DataTable.Row>
                 
